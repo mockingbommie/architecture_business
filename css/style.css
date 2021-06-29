@@ -1,0 +1,243 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    background:#031f35 url(../image/lines.png)repeat-y; /* 竖直方向重复 */
+    background-size: cover;
+}
+.banner{
+    width: 100%;
+    /* “视区”所指为浏览器内部的可视区域大小
+    vh：1vh等于视口高度的1%。
+    vw：1vw等于视口宽度的1%。 */
+    height: 115vh;
+    background-image: url(../image/banner-gb4.jpeg);
+    background-size: cover;
+}
+.slogan{
+    width: 100%;
+    height: 100vh;
+    /* 块级元素浮动下居中 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slogan h1{
+    font-size: 85px;
+    /* 文字居中 */
+    text-align: center;
+    padding: 90px;
+}
+.slogan h3{
+    font-size: 24px;
+    text-align: center;
+    padding: 40px 0;
+    font-weight: 400;
+}
+.slogan a{
+    width: 220px;
+    display: block; /* 显示为块级元素 */
+    margin: auto;
+    background: #933116;
+    font-size: 20px;
+    color: black;
+    font-weight: 600;
+    text-align: center;
+    padding: 18px;
+    text-decoration: none; /*没有文本装饰*/
+    border: 2px solid rgba(0,0,0,0);
+    cursor: pointer;/* 变手 */
+    /* 过渡出现 会连带上面块一起移动效果 */
+    transition: 0.5s;
+
+}
+.slogan a:hover{
+    border: 2px solid #933116;
+    background: none;
+    color: #fff;
+}
+.menu{
+    width:60%;
+    height: 80px;
+    background: rgba(3, 31, 53, 0.8);
+    /* 顶部固定 */
+    position:fixed;
+    top:50px;
+       /* 绝对定位居中 */
+    left: 50%;
+    transform: translateX(-50%); /* 水平 */
+    z-index: 100; /* 堆叠顺序  */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;/* 各项周围留有空白 */
+}
+.logo{
+    font-size: 22px;
+    padding-left: 60px;
+}
+.menulist{
+    padding-right: 20px;
+}
+.menulist ul li{
+    list-style: none;/* 清除格式 */
+    display: inline-block;/* 块级元素一行显示 */
+    padding-right: 40px;
+    font-size: 18px;
+}
+.active{
+    color: #933116;
+}
+.reason{
+    width: 60%;
+    height: 600px;
+    background: url(../image/reason-bg.jpg);
+    background-size: cover; /* 把背景图片放大到适合元素容器的尺寸，图片比例不变 */
+   /* 在标准文档流里可以直接margin居中 */
+    margin: auto;
+    margin-top: -15vh;
+}
+.reason h1{
+    text-align: center;
+    font-size: 32px;
+    font-weight: 400;
+    padding: 80px;
+}
+.reason-con{
+    display: grid;
+    /* 定义每一列的列宽 */
+    grid-template-columns: 1fr 1fr; /* 表示两个相同宽度的列 */
+    column-gap: 100px;/* 列间距 */
+    align-items: center;
+    justify-content: center;
+}
+.reason-l{
+    text-align: right;
+    font-size: 32px;
+    /* 计算各子元素的距离 */
+    line-height: 1.5;
+}
+.reason-item h3{
+color: #933116;
+padding: 14px;
+padding-left: 0px;
+position: relative;
+transition: 0.5s;
+}
+/* :before 选择器在被选元素的内容前面插入内容。 */
+.reason h3:before{
+content: '';
+height: 2px;
+width: 0px;
+background-color: #933116;
+position: absolute;
+top: 50%;
+left: 0;
+transform: translateY(-50%);/* 垂直居中 */
+transition: 0.5s;
+}
+.reason-item p{
+color: #788993;
+width: 86%;
+}
+.reason-item:hover h3{
+    padding-left: 40px;
+}
+.reason-item:hover h3:before{
+    width: 30px;
+}
+.skill{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 80px;
+}
+.skill h1{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    padding: 80px;
+}
+.skill ul{
+    text-align: center;
+}
+.skill ul li{
+    list-style: none;
+    display: inline-block;
+    padding-right: 40px;
+}
+.skill-con{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+    /* grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 200px 200px; */
+    column-gap: 40px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    padding-left: 200px;
+    padding-right: 200px;
+
+}
+.skill-item{
+    width: 100%;
+    position: relative;
+}
+.skill-item img{
+    width: 100%;
+}
+.skill-item span{
+    font-size: 80px;
+    position: absolute;
+    right: 0;
+    opacity: 0;/* 透明 */
+    top: 50px;
+    z-index: 5;
+    transition: 0.5s;
+    transition-delay: 0.2s;
+}
+.skill-item:hover span {
+    right: 40px;
+    top: 50px;
+    opacity: 1;
+    color: #933116;
+}
+.skill-dev{
+    width: 90%;
+    position:absolute;
+    background: rgba(3, 31, 53, 0.7);
+    bottom: 60px; /* 把图像的底边缘设置在其包含元素底边缘之上60像素高的位置： */
+    padding-left:40px;
+    line-height: 1.8;
+    z-index: 5;
+    transition: 0.5s;
+}
+.skill-item:hover .skill-dev{
+    bottom: 50px;
+    background: rgba(3, 31, 53, 0);
+    transition: 0.5s;
+}
+.skill-dev h3{
+    font-size: 28px;
+    font-weight: 400;
+}
+.skill-item:hover .skill-dev h3{
+    color: #933116;
+}
+.mask{
+    width: 0%;
+    height: 100%;
+    background-color: rgba(3, 31, 53, 0.7);
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+}
+.skill-item:hover .mask{
+    width: 100%;
+}
